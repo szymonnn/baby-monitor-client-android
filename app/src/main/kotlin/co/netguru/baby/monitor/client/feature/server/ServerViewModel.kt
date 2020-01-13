@@ -2,6 +2,7 @@ package co.netguru.baby.monitor.client.feature.server
 
 import androidx.lifecycle.*
 import co.netguru.baby.monitor.client.common.ISchedulersProvider
+import co.netguru.baby.monitor.client.common.OpenForTesting
 import co.netguru.baby.monitor.client.data.DataRepository
 import co.netguru.baby.monitor.client.data.server.CameraState
 import co.netguru.baby.monitor.client.data.splash.AppState
@@ -18,6 +19,7 @@ import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
+@OpenForTesting
 class ServerViewModel @Inject constructor(
     private val nsdServiceManager: NsdServiceManager,
     private val dataRepository: DataRepository,

@@ -7,6 +7,7 @@ apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.getkeepsafe.dexcount'
 apply plugin: 'com.vanniktech.android.junit.jacoco'
 apply plugin: 'io.fabric'
+apply plugin: 'kotlin-allopen'
 
 ext {
 
@@ -25,7 +26,7 @@ android {
         versionCode isBitrise ? Integer.parseInt(bitrise.io.buildNumber) : 1
         versionName '0.3.2'
         vectorDrawables.useSupportLibrary = true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "co.netguru.baby.monitor.client.common.CustomTestRunner"
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
@@ -114,6 +115,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    allOpen {
+        annotation("co.netguru.baby.monitor.client.common.OpenForTesting")
     }
 }
 
@@ -251,4 +256,14 @@ dependencies {
     androidTestImplementation test.espresso
     androidTestImplementation test.room
     androidTestImplementation test.lifecycleExtensions
+    androidTestImplementation test.mockitoKotlin
+    androidTestImplementation test.mockito
+    debugImplementation('androidx.fragment:fragment-testing:1.1.0') {
+        exclude group: 'androidx.test', module: 'core'
+    }
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'org.mockito:mockito-android:3.2.4'
+    androidTestImplementation('com.schibsted.spain:barista:3.2.0') {
+        exclude group: 'org.jetbrains.kotlin' // Only if you already use Kotlin in your project
+    }
 }

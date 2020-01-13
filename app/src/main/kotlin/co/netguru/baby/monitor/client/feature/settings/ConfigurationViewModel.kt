@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import co.netguru.baby.monitor.client.application.firebase.FirebaseRepository
 import co.netguru.baby.monitor.client.common.LocalDateTimeProvider
+import co.netguru.baby.monitor.client.common.OpenForTesting
 import co.netguru.baby.monitor.client.common.RunsInBackground
 import co.netguru.baby.monitor.client.data.DataRepository
 import co.netguru.baby.monitor.client.data.client.ChildDataEntity
@@ -23,6 +24,7 @@ import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 import javax.inject.Inject
 
+@OpenForTesting
 class ConfigurationViewModel @Inject constructor(
     private val nsdServiceManager: NsdServiceManager,
     private val resetAppUseCase: ResetAppUseCase,

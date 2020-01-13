@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import co.netguru.baby.monitor.client.common.OpenForTesting
 import co.netguru.baby.monitor.client.data.DataRepository
 import co.netguru.baby.monitor.client.data.client.ChildDataEntity
 import io.reactivex.Single
@@ -20,6 +21,7 @@ import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
+@OpenForTesting
 class SettingsViewModel @Inject constructor(
     private val dataRepository: DataRepository
 ) : ViewModel() {

@@ -1,6 +1,7 @@
 package co.netguru.baby.monitor.client.data
 
 import androidx.lifecycle.LiveData
+import co.netguru.baby.monitor.client.common.OpenForTesting
 import co.netguru.baby.monitor.client.data.client.ChildDataEntity
 import co.netguru.baby.monitor.client.data.client.home.log.LogDataEntity
 import co.netguru.baby.monitor.client.data.communication.ClientEntity
@@ -13,6 +14,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
+@OpenForTesting
 class DataRepository @Inject constructor(
     private val database: AppDatabase,
     private val appStateHandler: AppStateHandler
